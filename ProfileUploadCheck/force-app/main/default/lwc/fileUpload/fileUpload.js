@@ -15,6 +15,7 @@ export default class FileUpload extends LightningElement {
              'recordId':this.recordId
           }
         console.log(this.fileData);
+        console.log('changes made successfully');
        }
     }
 
