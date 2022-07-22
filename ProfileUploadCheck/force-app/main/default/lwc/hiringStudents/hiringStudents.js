@@ -64,7 +64,7 @@ export default class HiringStudents extends LightningElement {
     }
 
    
-   
+   //this is for file upload!!!
     openFileUpload(event){
         this.file = event.target.files[0];
         this.fileName =  'Selected File: '+this.file.name;
