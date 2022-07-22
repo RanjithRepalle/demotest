@@ -35,6 +35,7 @@ export default class HiringStudents extends LightningElement {
         College__c:CONTACT_College__c,
         Address__c:CONTACT_Address__c
      }
+     //this for handle click
     handleChange(event){
         if(event.target.name === 'firstName'){
             this.contactRecord.FirstName = event.target.value;
