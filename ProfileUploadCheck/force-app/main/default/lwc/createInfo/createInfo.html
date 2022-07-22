@@ -1,0 +1,117 @@
+<!--template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:account" alternative-text="Event" size="small"></lightning-icon>
+            &nbsp;Insert Multiple Informations
+        </h3>
+        <div slot="footer">
+            <lightning-button  label="Add" variant="brand"  onclick={addRow}>
+            </lightning-button>&nbsp;
+            <lightning-button  label="Save" variant="brand" onclick={saveMultipleInfos}>
+            </lightning-button>
+        </div>  
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="S.No">S.NO</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Info Name">Info Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Info Email">Info Email</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Info Contact Number">Info Contact Number</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Action">Action</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={infoRecList} for:item="info" for:index="index">
+
+                    <tr key={keyIndex}>
+                        <td>{index}</td>
+                        <td>
+                            <lightning-input name='name' access-key={index} id={index} type='text' onchange={changeHandler}  value={info.Name__c}>
+                            </lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='email' access-key={index} id={index} type='text' onchange={changeHandler}   value={info.Email_Address__c}>
+                            </lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='contactNumber' access-key={index} type='Phone' id={index}  onchange={changeHandler} value={info.Contact_Number__c}></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-icon icon-name="action:delete"  access-key={index} id={index} alternative-text="Click to Call" size="small" title="large size" onclick={removeRow}>
+                            </lightning-icon>
+                    
+                            <lightning-button
+                                    variant="base"                                       
+                                    icon-name="utility:close"
+                                    class="slds-m-left_x-small"
+                                    id={index}
+                                    onclick={removeRow}></lightning-button-->
+                            
+                        <!--/td>
+                    </tr>
+
+                </template>
+            </tbody>
+        </table>      
+
+
+
+
+
+
+    </lightning-card>
+
+
+
+</template-->
+
+<template>
+    <lightning-card title="Fill In Details">
+        <p class="slds-var-p-around_small">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input name="firstName" class="validate" type="text" label="First Name" required></lightning-input>
+                    <lightning-input name="email" class="validate" type="email" label="Email" pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" required></lightning-input>
+                    <!-- <lightning-input name="Email" class="validate" type="Email" label="Email" required></lightning-input> -->
+                    <lightning-input name="Qualification" class="validate" type="Qualification" label="Qualification" required></lightning-input>
+                    <lightning-combobox name="State" class="validate" type="Text" label="State"  required></lightning-combobox>
+                    <lightning-input name="pincode" class="validate" type="number" label="Pin Code"></lightning-input>
+                    <lightning-file-upload
+                     label="Resume"
+                     name="fileUploader"
+                     accept={acceptedFormats}
+                     record-id={myRecordId}
+                     onuploadfinished={handleUploadFinished}
+                     multiple>
+                    </lightning-file-upload>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input name="lastName" class="validate" type="text" label="Last Name" required></lightning-input>       
+                    <lightning-input name="phone" class="validate" type="tel" label="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number" required></lightning-input>
+                    <!-- <lightning-input name="phone" class="validate" type="tel" label="Phone" required></lightning-input> -->
+                    <lightning-input name="Percentage" class="validate" type="number" label="Percentage" required></lightning-input>
+                    <lightning-combobox name="City" class="validate" type="Text" label="City"  required></lightning-combobox>
+                    <lightning-input name="Address" class="validate" type="Text" label="Address"></lightning-input>
+                    <lightning-input name="Prefered Location" class="validate"  label="Prefered Location" required></lightning-input>
+                </lightning-layout-item>
+                
+                <lightning-layout-item size="12" class="slds-var-p-top_small">
+                    <lightning-button class="slds-align_absolute-center" label="Submit" onclick={createContact}></lightning-button>    
+                </lightning-layout-item>
+            </lightning-layout>
+        </p>
+    </lightning-card>
+
+
+    
+</template>

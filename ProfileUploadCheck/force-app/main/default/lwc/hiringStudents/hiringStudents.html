@@ -1,0 +1,39 @@
+<template>
+    <lightning-card>
+      <h3 slot="title">
+         <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+         Please Enter your Details
+      </h3>
+     
+      <p class="slds-m-around_medium">
+        
+        <lightning-input type="text" label="First Name" name="firstName" onchange={handleChange} placeholder="Enter Your FirstName" required></lightning-input> 
+        <lightning-input type="text" label="Last Name" name="lastName" placeholder="Enter Your LastName" onchange={handleChange} required></lightning-input>
+        <lightning-input type="email" label="email" name="email" placeholder="Enter Your Email" onchange={handleChange} required></lightning-input>
+        <!-- <lightning-record-edit-form object-api-name="Contact">
+          <lightning-input-field field-name="AccountId" name='account' onchange={handleChange} ></lightning-input-field>
+        </lightning-record-edit-form> -->
+        <lightning-input type="tel" label="Mobile No." name="mobilephone" onchange={handleChange} max-length="10" placeholder="Enter Your Mobile No." required></lightning-input>
+        <lightning-input type="date" label="Date Of Birth" name="birthdate" onchange={handleChange} placeholder="Enter Your DateOfBirth" required></lightning-input>
+        <lightning-input type="Text" label="Highest Qualification" name="qualification" onchange={handleChange} placeholder="Enter Your Highest Qualification" required></lightning-input>
+        <lightning-input type="Text" label="Branch" name="branch" onchange={handleChange} placeholder="Enter Your Branch" required></lightning-input>
+        <lightning-input type="number" label="Percentage" name="percentage" onchange={handleChange} placeholder="Enter Your Percentage" step="0.01" required></lightning-input>
+        
+
+        <lightning-combobox
+          name="college"
+          label="College"
+          value={value}
+          placeholder="Select Your College" 
+          options={options}
+          onchange={handleChange} required>
+        </lightning-combobox>
+        <!--lightning-input type="Text" label="Address" name="address" onchange={handleChange} required></lightning-input-->       
+        <lightning-textarea name="address" label="Address" placeholder="Enter Your Address" onchange={handleChange} required></lightning-textarea>
+        <lightning-input type="file" label="Attach CV" onchange={openFileUpload} required></lightning-input> <b style="color:blue;">{fileName} </b> <br/><b style="color:red;">File must be less than 300 kb</b>
+      </p>
+      <div slot="footer">
+        <lightning-button  label="Submit" variant = "brand" onclick={handleClick}></lightning-button>
+     </div>
+    </lightning-card>
+</template>
