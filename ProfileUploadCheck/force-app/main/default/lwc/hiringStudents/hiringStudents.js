@@ -38,6 +38,8 @@ export default class HiringStudents extends LightningElement {
      //this for handle click
      //yes it is
      //ok changes done
+
+     // i am  changing this code
     handleChange(event){
         if(event.target.name === 'firstName'){
             this.contactRecord.FirstName = event.target.value;
